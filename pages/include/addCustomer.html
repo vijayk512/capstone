@@ -1,0 +1,78 @@
+<header ng-include="'pages/header.html'" id="navigation"></header>
+<div class="container page-slide">
+    <div class="row heading">
+        <div class="col-sm-8">       <h2>Customer</h2>
+        </div>
+        <div class="col-sm-4">
+            <a href="#/addCustomer/new" class="addcontent" ng-show="add_user">Add Customer</a>
+        </div>
+
+    </div>
+
+    <div class="row heading">
+        <div class="col-sm-2"> </div>
+        <div class="col-sm-8"> 
+            <form id="userform" class="userform" name="userform"  novalidate>
+                <h2>{{message}}</h2>
+                <div class="row adddatalist">
+                    <div class="col-sm-6"><label>first name</label></div>
+                    <div class="col-sm-6"><label>last name</label></div>
+                </div>
+                <div class="row adddatalist">
+                    <div class="col-sm-6"><input type="text" ng-required="true" ng-model="getuserdata.fname" name="fname">
+                        <span style="color:red;" ng-show="userform.fname.$dirty && userform.fname.$invalid">
+                            <span ng-show="userform.fname.$error.required">First Name required</span>
+                        </span>
+                    </div>
+                    <div class="col-sm-6"><input type="text" ng-required="true" ng-model="getuserdata.lname" name="lname">
+                        <span style="color:red;" ng-show="userform.lname.$dirty && userform.lname.$invalid">
+                            <span ng-show="userform.lname.$error.required">Last Name required</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="row adddatalist">
+                    <div class="col-sm-6"><label>Email Address</label></div>
+                    <div class="col-sm-6"><label>SSN (Last 4 digit only)</label></div>
+                </div>
+                <div class="row adddatalist">
+                    <div class="col-sm-6"><input type="text" ng-required="true" ng-model="getuserdata.email" name="email">
+                        <span style="color:red;" ng-show="userform.email.$dirty && userform.email.$invalid">
+                            <span ng-show="userform.email.$error.required">Invalid Email</span>
+                            <span ng-show="userform.email.$error.email">Invalid Email address</span>
+                        </span>
+                    </div>
+                    <div class="col-sm-6"><input type="text" ng-required="true" ng-minlength="4" ng-maxlength="4" ng-model="getuserdata.ssn" name="SSN">
+                        <span style="color:red;" ng-show="userform.ssn.$dirty && userform.ssn.$invalid">
+                            <span ng-show="userform.ssn.$error.required">Enter correct SSN Number</span>
+                            <span ng-show="userform.ssn.$error.minlength">Enter correct SSN Number</span>
+                            <span ng-show="userform.ssn.$error.maxlength">Enter correct SSN Number</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="row adddatalist">
+                    <div class="col-sm-12"><label>Address</label></div>
+
+                </div>
+                <div class="row adddatalist">
+                    <div class="col-sm-12"><textarea cols="50" rows="2" name="address" ng-model="getuserdata.address"></textarea></div>
+                </div>
+                <div class="row adddatalist">
+                    <div class="col-sm-6"><label>Pin Code</label></div>
+                    <div class="col-sm-6"><label>Phone number</label></div>
+                </div>
+                <div class="row adddatalist">
+                    <div class="col-sm-6"><input type="text" ng-model="getuserdata.pincode" name="pincode"></div>
+                    <div class="col-sm-6"><input type="text" ng-model="getuserdata.phonenumber" name="phonenumber"></div>
+                </div>
+
+
+                <div class="row adddatalist">
+                    <div class="col-sm-12">
+                        <input type="hidden" ng-model="getuserdata.id" name="id">
+                        <button class="buttonRow" ng-click="submitForm()" >{{buttontype}}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

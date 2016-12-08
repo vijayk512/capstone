@@ -1,0 +1,71 @@
+<header ng-include="'pages/header.html'" id="navigation"></header>
+<div class="container page-slide">
+
+    <div class="row home_page">
+
+        <div class="col-sm-6">
+            <h2>CRM Users List</h2>
+            <div class="row datalist">
+
+                <div class="col-sm-3"><label>Name</label></div>
+                <div class="col-sm-3"><label>Email</label></div>
+
+                <div class="col-sm-3"><label>SSN</label></div>
+
+                <div class="col-sm-3"><label >Action</label></div>
+            </div>
+            <div class="row" ng-repeat="crmuserlist in homecrmuserget">
+                <div class="col-sm-3"><p>{{crmuserlist.fname}} {{crmuserlist.lname}}</p></div>
+                <div class="col-sm-3"><p>{{crmuserlist.email_id}}</p></div>
+                <div class="col-sm-3"><p>{{crmuserlist.ssn}}</p></div>
+                <div class="col-sm-3"><a ng-show="CRMUSer" href="#/addCRMuser/{{crmuserlist.id}}/edit">edit</a></div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <h2>Customer List</h2>
+            <div class="row datalist">
+
+                <div class="col-sm-3"><label>Name</label></div>
+                <div class="col-sm-3"><label>Email</label></div>
+
+                <div class="col-sm-3"><label>Phone Number</label></div>
+
+                <div class="col-sm-3"><label>Action</label></div>
+            </div>
+            <h2 ng-show="noerrorr">{{errormessage}}</h2>
+            <div class="row" ng-repeat="userlist in homeuserget">
+
+                <div class="col-sm-3"><p>{{userlist.fname}} {{userlist.lname}}</p></div>
+                <div class="col-sm-3"><p>{{userlist.email}}</p></div>
+                <div class="col-sm-3"><p>{{userlist.phonenumber}}</p></div>
+                <div class="col-sm-3" ><a ng-show="addcustomer" href="#/addCRMuser/{{userlist.id}}/edit">edit</a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row home_page">
+
+        <div class="col-sm-6">
+            <h2>Item List</h2>
+            <div class="row datalist">
+
+                <div class="col-sm-3"><label>Item Code</label></div>
+                <div class="col-sm-3"><label>Quantity</label></div>
+
+                <div class="col-sm-3"><label>Price</label></div>
+
+                <div class="col-sm-3"><label>Action</label></div>
+            </div>
+            <h2 ng-show="noerror">{{errormessagee}}</h2>
+            <div class="row" ng-repeat="itemlist in itemlistget">
+
+                <div class="col-sm-3"><p>{{itemlist.item_code}}</p></div>
+                <div class="col-sm-3"><p>{{itemlist.quantity}}</p></div>
+                <div class="col-sm-3"><p>{{itemlist.price}}</p></div>
+                <div class="col-sm-3"><a ng-show="itemlist" href="#/addCRMuser/{{itemlist.id}}/edit">edit</a></div>
+            </div>
+        </div>
+        <div class="col-sm-6"></div>
+    </div>
+
+</div>

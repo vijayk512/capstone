@@ -1,0 +1,28 @@
+<header ng-include="'pages/header.html'" id="navigation"></header>
+<div class="container page-slide ">
+    <div class="row heading ">
+        <div class="col-sm-8">       <h2>Customer Services</h2>
+        </div>
+        <div class="col-sm-4">
+            <a ng-show="service" href="#/addservices/new" class="addcontent">Add Services</a>
+        </div>
+
+    </div>
+    <div class="row datalist ">
+
+        <div class="col-sm-3"><label>Customer Name</label></div>
+        <div class="col-sm-3"><label>Services Date</label></div>
+        <div class="col-sm-3"><label>Feedback</label></div>
+        <div class="col-sm-3"><label>Action</label></div>
+    </div>
+    <h2 ng-show="noerror">{{errormessage}}</h2>
+    <div class="row datarepeat" ng-repeat="services in servicesget">
+        <div class="col-sm-3"><p>{{services.fname}} {{services.lname}}</p></div>
+        <div class="col-sm-3"><p>{{services.services_date}}</p></div>
+        <div class="col-sm-3"><p>{{services.feedback}}</p></div>
+        
+        <div class="col-sm-3">
+            <a ng-show="service" href="#/addservices/{{services.id}}/edit">edit</a>
+            <a ng-show="service" ng-click="deleteservices(services.id)">delete</a></div>
+    </div>
+</div>

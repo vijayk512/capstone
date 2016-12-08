@@ -1,0 +1,62 @@
+<header ng-include="'pages/header.html'" id="navigation"></header>
+<div class="container page-slide">
+    <div class="row heading">
+        <div class="col-sm-8">       <h2>Customer Services</h2>
+        </div>
+        <div class="col-sm-4">
+            <a href="#/addservices/new" class="addcontent" ng-show="add_user">Add New Services</a>
+        </div>
+
+    </div>
+
+    <div class="row heading">
+        <div class="col-sm-2"> </div>
+        <div class="col-sm-8"> 
+            <form id="userform" class="userform" name="userform"  novalidate>
+                <h2>{{message}}</h2>
+                <div class="row adddatalist">
+                    <div class="col-sm-6"><label>Customer Name</label></div>
+                    <div class="col-sm-6"><label>Service Date</label></div>
+                </div>
+                <div class="row adddatalist">
+                    <div class="col-sm-6">
+                        <select name="customerdata" ng-model="getuserdata.customer_itemlist_id" >
+                            <option value="">Select Customer Name</option>
+                            <option   ng-repeat="customerdata in customerlist" ng-selected="{{getuserdata.customer_itemlist_id === customerdata.id}}" 
+                                     value="{{customerdata.id}}">{{customerdata.fname}} {{customerdata.lname}}</option>
+                        </select>
+
+                    </div>
+                    <div class="col-sm-6"><input type="text" ng-required="true" ng-model="getuserdata.services_date" name="services_date">
+                        <span style="color:red;" ng-show="userform.services_date.$dirty && userform.services_date.$invalid">
+                            <span ng-show="userform.services_date.$error.required">Services Date required</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="row adddatalist">
+                    <div class="col-sm-12"><label>Feedback</label></div>
+
+                </div>
+                <div class="row adddatalist">
+
+                    <div class="col-sm-12">
+                        <textarea cols="50" rows="3" name="feedback" ng-model="getuserdata.feedback"></textarea>
+                        <span style="color:red;" ng-show="userform.feedback.$dirty && userform.feedback.$invalid">
+                            <span ng-show="userform.feedback.$error.required">Enter Feedback</span>
+
+                        </span>
+                    </div>
+                </div>
+
+
+
+                <div class="row adddatalist">
+                    <div class="col-sm-12">
+                        <input type="hidden" ng-model="getuserdata.id" name="id">
+                        <button class="buttonRow" ng-click="submitForm()" >{{buttontype}}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<header ng-include="'pages/header.html'" id="navigation"></header>
+<div class="container page-slide ">
+    <div class="row heading ">
+        <div class="col-sm-8">       <h2>Customer List</h2>
+        </div>
+        <div class="col-sm-4">
+            <a ng-show="addcustomer" href="#/addCustomer/new" class="addcontent">Add Customer</a>
+        </div>
+
+    </div>
+    <div class="row datalist ">
+
+        <div class="col-sm-2"><label>Name</label></div>
+        <div class="col-sm-2"><label>Email</label></div>
+        <div class="col-sm-2"><label>Phone Number</label></div>
+        <div class="col-sm-2"><label>SSN</label></div>
+        <div class="col-sm-2"><label>Address</label></div>
+        <div class="col-sm-2"><label>Action</label></div>
+    </div>
+    <h2 ng-show="noerror">{{errormessage}}</h2>
+    <div class="row datarepeat" ng-repeat="customer in customerget">
+        <div class="col-sm-2"><p><a href="#/viewcustomerdetail/{{customer.id}}/view">{{customer.fname}} {{customer.lname}}</a></p></div>
+        <div class="col-sm-2"><p>{{customer.email}}</p></div>
+        <div class="col-sm-2"><p>{{customer.phonenumber}}</p></div>
+        <div class="col-sm-2"><p>{{customer.ssn}}</p></div>
+        <div class="col-sm-2"><p>{{customer.address}}</p></div>
+        <div class="col-sm-2">
+            <a ng-show="addcustomer" href="#/addCustomer/{{customer.id}}/edit">edit</a>
+            <a ng-show="addcustomer" ng-click="deletecustomer(customer.id)">delete</a></div>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+<header ng-include="'pages/header.html'" id="navigation"></header>
+<div class="container page-slide">
+<div class="row">
+
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-5">
+        <div class="devices">
+            <img src="http://www.x2crm.com/wp-content/uploads/2011/08/PadPhone_Screenshots_72.png" alt="">
+        </div>
+    </div>
+    <div class="col-sm-4" id="signmeup">
+        <h2>CRM User registration</h2>
+        <form id="registerForm" name="registerForm" novalidate >
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <input type="text" value="" ng-required="true" name="firstname" ng-model="profile.firstname" placeholder="First Name">
+                    <span style="color:red;" ng-show="registerForm.firstname.$dirty && registerForm.firstname.$invalid">
+                        <span ng-show="registerForm.firstname.$error.required">Firstname required</span>
+                    </span>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <input type="text" value="" ng-required="true" name="lastname" ng-model="profile.lastname" placeholder="Last Name">
+                    <span style="color:red;" ng-show="registerForm.lastname.$dirty && registerForm.lastname.$invalid">
+                        <span ng-show="registerForm.lastname.$error.required">Lastname required</span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <input type="email" value="" ng-required="true" name="email" ng-model="registration.email" placeholder="Email">
+                    <span style="color:red;" ng-show="registerForm.email.$dirty && registerForm.email.$invalid">
+                        <span ng-show="registerForm.email.$error.required">Invalid Email</span>
+                        <span ng-show="registerForm.email.$error.email">Invalid Email address</span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <input type="text" value="" data-ng-model='registration.password'  name="password" ng-minlength="8" ng-required="true" placeholder="Password">
+                    <span style="color:red;" ng-show="registerForm.password.$dirty && registerForm.password.$invalid">
+                        <span ng-show="registerForm.password.$error.required">Password length to short</span>
+                        <span ng-show="registerForm.password.$error.minlength">Password length to short</span>
+                    </span>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <input type="text" value="" name="password_confirmation" ng-model="registration.password_confirmation" ng-minlength="8" ng-required="true" data-password-verify="registration.password" placeholder="Password Confirmation">
+                    <span style="color:red;" ng-show="registerForm.password_confirmation.$dirty && registerForm.password_confirmation.$invalid">
+                        <span ng-show="registerForm.password_confirmation.$error.required">Password length to short</span>
+                        <span ng-show="registerForm.password_confirmation.$error.minlength">Password length to short</span>
+                        <span ng-show="registerForm.password_confirmation.$error.passwordVerify">Password should match</span>
+                    </span>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <input type="text" maxlength="10" value=""  name="mobile" ng-model="profile.mobile" ng-minlength="10" ng-maxlength="10" ng-required="true" placeholder="Phone Number">
+                    <span style="color:red;" ng-show="registerForm.mobile.$dirty && registerForm.mobile.$invalid">
+                        <span ng-show="registerForm.mobile.$error.required">Enter correct Number</span>
+                        <span ng-show="registerForm.mobile.$error.minlength">Enter correct Number</span>
+                        <span ng-show="registerForm.mobile.$error.maxlength">Enter correct Number</span>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- <div class="col-sm-2">
+                <a href="#/">Back</a>
+                </div>-->
+                <div class="col-sm-12" style="text-align: center;">
+                    <button ng-disabled="registerForm.$pristine || registerForm.$dirty && registerForm.$invalid" ng-click="submit()" class="buttonRow">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+</div>

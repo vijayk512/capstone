@@ -1,0 +1,53 @@
+<header ng-include="'pages/header.html'" id="navigation"></header>
+<div class="container page-slide">
+<div class="row">
+
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-5">
+        <div class="devices">
+            <img src="http://www.x2crm.com/wp-content/uploads/2011/08/PadPhone_Screenshots_72.png" alt="">
+        </div>
+    </div>
+    <div class="col-sm-4" id="logmein">
+
+        <h2>Log In with CRM account</h2>
+        <div ng-show="error" class="alert alert-danger">{{error}}</div>
+        <form id="addForm" ng-submit="login()" role="form" name="addForm" novalidate >
+            <div class="row">
+
+                <div class="col-sm-12">
+                    <input type="email" value="" ng-required="true" name="email" ng-model="email" placeholder="CRM Email">
+                    <span style="color:red;" ng-show="addForm.email.$dirty && addForm.email.$invalid">
+                        <span ng-show="addForm.email.$error.required">Invalid Email</span>
+                        <span ng-show="addForm.email.$error.email">Invalid Email address</span>
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-sm-12">
+                    <input type="password" value="" ng-required="true" name="password" ng-model="password" placeholder="CRM password">
+                    <span style="color:red;" ng-show="addForm.password.$dirty && addForm.password.$invalid">
+                        <span ng-show="addForm.password.$error.required">Password required</span>
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+
+<!--                <div class="col-sm-12">
+                    <a style="float: right; padding: 20px 0px;" href="#/forgetpassword">Forgot your password?</a>
+                </div>-->
+            </div> 
+
+            <div class="row">
+
+                <div class="col-sm-12" style="text-align: center;">
+                    <button ng-disabled="addForm.$pristine || addForm.$dirty && addForm.$invalid" ng-click="submit()" class="buttonRow">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+</div>

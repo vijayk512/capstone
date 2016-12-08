@@ -1,0 +1,63 @@
+<header ng-include="'pages/header.html'" id="navigation"></header>
+<div class="container page-slide">
+    <div class="row heading">
+        <div class="col-sm-8">       <h2>Items</h2>
+        </div>
+        <div class="col-sm-4">
+            <a href="#/additemlist/new" class="addcontent" ng-show="add_user">Add Items</a>
+        </div>
+
+    </div>
+
+    <div class="row heading">
+        <div class="col-sm-2"> </div>
+        <div class="col-sm-8"> 
+            <form id="userform" class="userform" name="userform"  novalidate>
+                <h2 ng-show="">{{message}}</h2>
+                <div class="row adddatalist">
+                    <div class="col-sm-6"><label>Item Code</label></div>
+                    <div class="col-sm-6"><label>Quantity</label></div>
+                </div>
+                <div class="row adddatalist">
+                    <div class="col-sm-6"><input type="text" ng-required="true" ng-model="getuserdata.item_code" name="item_code">
+                        <span style="color:red;" ng-show="userform.item_code.$dirty && userform.item_code.$invalid">
+                            <span ng-show="userform.item_code.$error.required">Item Code required</span>
+                        </span>
+                    </div>
+                    <div class="col-sm-6"><input type="text" ng-required="true" ng-model="getuserdata.quantity" name="quantity">
+                        <span style="color:red;" ng-show="userform.quantity.$dirty && userform.quantity.$invalid">
+                            <span ng-show="userform.quantity.$error.required">Quantity required</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="row adddatalist">
+                    <div class="col-sm-6"><label>Price</label></div>
+                    
+                </div>
+                <div class="row adddatalist">
+                    <div class="col-sm-6"><input type="text" ng-required="true" ng-model="getuserdata.price" name="price">
+                        <span style="color:red;" ng-show="userform.price.$dirty && userform.price.$invalid">
+                            <span ng-show="userform.price.$error.required">Invalid Price</span>
+                           
+                        </span>
+                    </div>
+                    
+                </div>
+                <div class="row adddatalist">
+                    <div class="col-sm-12"><label>Description</label></div>
+
+                </div>
+                <div class="row adddatalist">
+                    <div class="col-sm-12"><textarea cols="50" rows="4" name="description" ng-model="getuserdata.description"></textarea></div>
+                </div>
+                
+                <div class="row adddatalist">
+                    <div class="col-sm-12">
+                        <input type="hidden" ng-model="getuserdata.id" name="id">
+                        <button class="buttonRow" ng-click="submitForm()" >{{buttontype}}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

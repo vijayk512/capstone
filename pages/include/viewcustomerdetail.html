@@ -1,0 +1,88 @@
+<header ng-include="'pages/header.html'" id="navigation"></header>
+<div class="container page-slide">
+    <div class="row heading">
+        <div class="col-sm-8">       <h2>Customer Services</h2>
+        </div>
+        <div class="col-sm-4">
+            <a ng-show="service" href="#/addservices/new" class="addcontent" ng-show="add_user">Add New Services</a>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-1"> </div>
+        <div class="col-sm-10 customerdetail"> 
+            <div class="row listdata">
+                <div class="col-sm-3"> 
+                    <label>Customer Name</label> 
+                </div>
+                <div class="col-sm-3"> 
+                    <p>{{getuserdata.fname}} {{getuserdata.lname}}</p>
+                </div>
+                <div class="col-sm-3"> 
+                    <label>Email</label> 
+                </div>
+                <div class="col-sm-3"> 
+                    <p>{{getuserdata.email}}</p>
+                </div>
+            </div>
+            <div class="row listdata">
+                <div class="col-sm-3"> 
+                    <label>Customer SSN</label> 
+                </div>
+                <div class="col-sm-3"> 
+                    <p>{{getuserdata.ssn}}</p>
+                </div>
+                <div class="col-sm-3"> 
+                    <label>Phone Number</label> 
+                </div>
+                <div class="col-sm-3"> 
+                    <p>{{getuserdata.phonenumber}}</p>
+                </div>
+            </div>
+            <div class="row listdata">
+
+                <div class="col-sm-3"> 
+                    <label>Customer Address</label> 
+                </div>
+                <div class="col-sm-9"> 
+                    <p>{{getuserdata.address}} - {{getuserdata.pincode}}</p>
+                </div>
+            </div>
+        </div>
+       
+
+    </div>
+    <div class="row servicedetails" >
+        <h2>Service Detail</h2>
+        <div class="col-sm-1"> </div>
+        <div class="col-sm-10 customerdetail" >
+            <div class="row listdata">
+                <div class="col-sm-4"> 
+                    <label>Service Date</label> 
+                </div>
+                <div class="col-sm-6"> 
+                    <label>Feedback</label> 
+                </div>
+                <div class="col-sm-2"> 
+                    <label>Service Done By</label> 
+                </div>
+            </div>
+            <div class="row listdata" ng-repeat="servicedetails in getcustomerservicedetails">
+
+                
+                <div class="col-sm-4"> 
+                    <p>{{servicedetails.services_date}}</p>
+                </div>
+                
+                <div class="col-sm-6"> 
+                    <p>{{servicedetails.feedback}}</p>
+                </div>
+                <div class="col-sm-2"> 
+                    <p>{{servicedetails.fname}} {{servicedetails.lname}}</p>
+                </div>
+
+            </div>  
+        </div>
+        
+    </div>
+</div>

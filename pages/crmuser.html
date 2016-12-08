@@ -1,0 +1,32 @@
+<header ng-include="'pages/header.html'" id="navigation"></header>
+<div class="container page-slide">
+    <div class="row heading">
+        <div class="col-sm-8">       <h2>CRM Users List</h2>
+        </div>
+        <div class="col-sm-4">
+            <a ng-show="CRMUSer" href="#/addCRMuser/new" class="addcontent">Add Users</a>
+        </div>
+
+    </div>
+    <div class="row datalist">
+
+        <div class="col-sm-2"><label>Name</label></div>
+        <div class="col-sm-2"><label>Email</label></div>
+        <div class="col-sm-2"><label>Phone Number</label></div>
+        <div class="col-sm-2"><label>SSN</label></div>
+        <div class="col-sm-2"><label>Role</label></div>
+        <div class="col-sm-2"><label>Action</label></div>
+    </div>
+
+    <div class="row datarepeat" ng-repeat="crmuser in crmuserget">
+        <div class="col-sm-2"><p>{{crmuser.fname}} {{crmuser.lname}}</p></div>
+        <div class="col-sm-2"><p>{{crmuser.email_id}}</p></div>
+        <div class="col-sm-2"><p>{{crmuser.phonenumber}}</p></div>
+        <div class="col-sm-2"><p>{{crmuser.ssn}}</p></div>
+        <div class="col-sm-2"><p>{{crmuser.user_type}}</p></div>
+        <div class="col-sm-2">
+            <a ng-show="CRMUSer" href="#/addCRMuser/{{crmuser.id}}/edit">edit</a>
+            
+            <a ng-show="CRMUSer" ng-click="deletecrmuser(crmuser.id)">delete</a></div>
+    </div>
+</div>
